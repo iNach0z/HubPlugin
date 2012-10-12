@@ -1,30 +1,21 @@
 package me.waffles.hub;
 
-import org.bukkit.plugin.Plugin;
-
 import com.comphenix.protocol.events.ConnectionSide;
-import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
 
-public class HubPacketListener extends PacketAdapter
+public class HubPacketListener extends MonitorListener
 {
 
-	public HubPacketListener(Plugin plugin, ConnectionSide connectionSide, int i) 
+	public HubPacketListener(HubMain plugin, ConnectionSide side) 
 	{
-		super(plugin, connectionSide, i);
+		super(plugin, side);
 	}
 	
-	 @Override
-     public void onPacketSending(PacketEvent event) 
-	 {
-         // Item packets
-         switch (event.getPacketID()) 
-         {
-         case 0x3E: // Sound effect
-             event.setCancelled(true);
-             break;
-         }
-     }
-
-
+    @Override
+    public void onPacketReceiving(PacketEvent event) 
+    {
+        // TODO
+    	if(getPlugin().sendDebug)
+    		System.out.println("[HUB] Packet received: " + event.getPacketID());
+    }
 }
