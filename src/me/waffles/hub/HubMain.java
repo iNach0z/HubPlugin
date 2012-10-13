@@ -54,6 +54,11 @@ public class HubMain extends JavaPlugin implements Listener
 				case "debug":
 					sendDebug = true;
 					break;
+				case "back":
+					playerServerMap.remove(sender.getName().toLowerCase());
+					//TODO TP to spawn.
+					System.out.println("[HUB] " + sender.getName() + " returned to the hub.");
+					break;
 				}
 
 			}
