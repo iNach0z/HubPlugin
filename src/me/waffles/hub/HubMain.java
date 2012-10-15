@@ -33,6 +33,9 @@ public class HubMain extends JavaPlugin implements Listener
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
+//kittenchunks was fucking here
+
+
 		try
 		{
 			//Change everything to lower case
